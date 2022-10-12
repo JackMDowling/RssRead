@@ -1,42 +1,27 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Feed from './components/Feed.jsx';
 import Header from './components/Header.jsx';
 const convert = require('xml-js');
 import { getRss } from './helpers/getRss.js';
 
-// function getRss() {
-//   const url = 'http://www.nytimes.com/services/xml/rss/nyt/HomePage.xml';
-//   try {
-//     fetch(`https://cors-anywhere.herokuapp.com/${url}`, {
-//       method: 'GET',
-//       headers: {
-//         'Access-Control-Allow-Origin': '*',
-//         'Content-Type': 'application/json',
-//       },
-//     }).then((res) => {
-//       console.log(res.data);
-//       const jsonStringData = convert.xml2json(res.data, {
-//         compact: true,
-//         spaces: 4,
-//       });
-//       console.log(jsonStringData);
-//       const jsonObjData = JSON.parse(jsonStringData);
-//       return jsonObjData;
-//     });
-//   } catch (error) {
-//     console.log(error);
-//   }
-// }
-
 const App = () => {
-  const feedData = getRss();
-  console.log(feedData);
+  const [feedData, setFeedData] = useState();
+  useEffect(() => {
+    async function fetchData() {
+      const asyncData = await getRss();
+      setFeedData(asyncData);
+    }
+    fetchData();
+  }, []);
   console.log('hey jack');
-  return (
+  console.log(feedData);
+  return feedData ? (
     <div>
       <Header />
-      <Feed />
+      <Feed data={feedData} />
     </div>
+  ) : (
+    <div>Loading...</div>
   );
 };
 export default App;
