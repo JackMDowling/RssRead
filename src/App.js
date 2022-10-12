@@ -13,8 +13,7 @@ const App = () => {
     }
     fetchData();
   }, []);
-  console.log('hey jack');
-  console.log(feedData);
+
   return feedData ? (
     <div>
       <Header />

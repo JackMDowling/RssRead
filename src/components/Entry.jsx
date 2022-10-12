@@ -22,7 +22,7 @@ const Entry = (props) => {
     </li>
   ) : (
     <div onClick={clickHandler}>
-      <Article />
+      <Article link={link} />
     </div>
   );
 };

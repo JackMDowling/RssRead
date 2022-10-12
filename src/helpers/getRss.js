@@ -13,14 +13,6 @@ async function getRss() {
       const jsonObjData = JSON.parse(jsonStringData);
       return jsonObjData;
     });
-  // .then((data) => {
-  //   output = data;
-  //   //   // const jsonStringData = convert.xml2json(data, {
-  //   //   //   compact: true,
-  //   //   //   spaces: 4,
-  //   //   // });
-  //   //   // console.log('data here', jsonStringData);
-  // });
   console.log('out', output );
   return output;
 }
