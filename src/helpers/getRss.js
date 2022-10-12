@@ -2,7 +2,7 @@ const axios = require('axios');
 const convert = require('xml-js');
 
 async function getRss() {
-  const url = `https://www.theguardian.com/sport/mlb/rss`;
+  const url = `https://medium.com/feed/the-economist`;
   let output = await fetch(`https://cors-anywhere.herokuapp.com/${url}`)
     .then((response) => response.text())
     .then((str) => {
@@ -13,7 +13,6 @@ async function getRss() {
       const jsonObjData = JSON.parse(jsonStringData);
       return jsonObjData;
     });
-  console.log('out', output );
   return output;
 }
 

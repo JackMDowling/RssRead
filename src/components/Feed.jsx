@@ -1,18 +1,22 @@
 import React from 'react';
 import Entry from './Entry.jsx';
 
-const Feed = (data) => {
-  const { item } = data.data.rss.channel;
+const Feed = (props) => {
+  const { item, image } = props.data.rss.channel;
+  console.log(item);
   return (
     <div className="feed">
       <ul>
         {item.map((ele) => {
-          const link = ele.link._text;
-          const imageUrl = ele['media:content'][0]._attributes.url;
-          return (
+          console.log(ele);
+          const content = ele['content:encoded']?._cdata;
+          const title = ele.title._cdata;
+          return content ? (
             <li>
-              <Entry src={imageUrl} title={ele.title._text} link={link} />
+              <Entry title={title} content={content} />
             </li>
+          ) : (
+            <></>
           );
         })}
       </ul>
