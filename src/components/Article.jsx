@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 const Article = (props) => {
   // Set State for Display Article
+  const { link } = props;
   const [articleData, setArticleData] = useState();
   // Bookmark
   useEffect(() => {
@@ -12,12 +13,11 @@ const Article = (props) => {
         const text = res.text();
         return text;
       });
+      setArticleData(data);
     }
     getArticle();
-    setArticleData(data);
   }, []);
   console.log(articleData);
-  const { link } = props;
   console.log(link);
 
   return (
