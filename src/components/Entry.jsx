@@ -22,7 +22,7 @@ const Entry = (props) => {
   };
   return !toggleArticle ? (
     <li className="entry" onClick={clickHandler}>
-      <p>{title}</p>
+      <p className="entryText">{title}</p>
     </li>
   ) : (
     <div onClick={clickHandler}>

@@ -6,7 +6,7 @@ import { getRss } from './helpers/getRss.js';
 const App = () => {
   const [feedData, setFeedData] = useState();
   const [selectedFeed, setSelectedFeed] = useState(
-    'http://feeds.mashable.com/Mashable'
+    'https://medium.com/feed/the-economist'
   );
 
   const selectFeed = (url) => {

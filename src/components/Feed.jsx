@@ -5,6 +5,7 @@ import { parseContent } from '../helpers/parseContent.js';
 const Feed = (props) => {
   const { item } = props.data.rss.channel;
   return (
+    <div className='feedContainer'>
     <ul className="feed">
       {item.map((ele) => {
         const content = parseContent(ele);
@@ -19,6 +20,7 @@ const Feed = (props) => {
         );
       })}
     </ul>
+    </div>
   );
 };
 export default Feed;

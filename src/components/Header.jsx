@@ -19,10 +19,14 @@ const Header = ({ selectFeed }) => {
   ]);
   return (
     <div className="header">
-      <h3>RSS Reader</h3>
-      <Selector savedFeeds={savedFeeds} selectFeed={selectFeed} />
-      <Bookmark />
-      <AddFeed />
+      <div className="headerLeft">
+        <h3>RSS Reader</h3>
+      </div>
+      <div className="headerRight">
+        <Selector savedFeeds={savedFeeds} selectFeed={selectFeed} />
+        <Bookmark />
+        <AddFeed />
+      </div>
     </div>
   );
 };

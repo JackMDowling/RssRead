@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 const AddFeed = ({ selectFeed }) => {
   const toggleDisplay = (e) => {
-    e.preventdefault();
+    e.preventDefault();
   };
 
   return <div className="AddFeed"></div>;

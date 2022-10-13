@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 const Bookmark = ({ selectFeed }) => {
   const toggleDisplay = (e) => {
-    e.preventdefault();
+    e.preventDefault();
   };
 
   return (
