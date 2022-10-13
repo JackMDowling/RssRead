@@ -8,8 +8,6 @@ const Entry = (props) => {
 
   // TODO!!!
 
-  // Need to parse content from description or from content:encoded
-  // Write a function that looks for _cdata and returns that so we have some range
   // If no _cdata return just a link
 
   const clickHandler = (e) => {
@@ -21,12 +19,13 @@ const Entry = (props) => {
     }
   };
   return !toggleArticle ? (
-    <li className="entry" onClick={clickHandler}>
+    <div className="entry" onClick={clickHandler}>
+      <div className="saveButton">Save</div>
       <p className="entryText">{title}</p>
-    </li>
+    </div>
   ) : (
     <div onClick={clickHandler}>
-      <Article content={content} />
+      <Article content={content} title={title} />
     </div>
   );
 };
