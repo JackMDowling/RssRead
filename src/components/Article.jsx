@@ -5,7 +5,6 @@ const Article = (props) => {
   function createMarkup() {
     return { __html: content };
   }
-
   return (
     <div className="article" dangerouslySetInnerHTML={createMarkup()}></div>
   );
