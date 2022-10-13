@@ -4,7 +4,7 @@ import Article from './Article.jsx';
 const Entry = (props) => {
   const [toggleArticle, setToggleArticle] = useState(false);
   // Bookmark
-  const { content, title } = props;
+  const { content, title, setArticle } = props;
 
   // TODO!!!
 
@@ -19,13 +19,17 @@ const Entry = (props) => {
     }
   };
   return !toggleArticle ? (
-    <div className="entry" onClick={clickHandler}>
+    <div
+      className="entry"
+      onClick={() => setArticle(content, title)}
+      key={title}
+    >
       <div className="saveButton">Save</div>
       <p className="entryText">{title}</p>
     </div>
   ) : (
     <div onClick={clickHandler}>
-      <Article content={content} title={title} />
+      {/* <Article content={content} title={title} /> */}
     </div>
   );
 };
