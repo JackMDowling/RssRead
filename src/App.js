@@ -1,22 +1,29 @@
 import React, { useState, useEffect } from 'react';
 import Feed from './components/Feed.jsx';
 import Header from './components/Header.jsx';
-const convert = require('xml-js');
 import { getRss } from './helpers/getRss.js';
 
 const App = () => {
   const [feedData, setFeedData] = useState();
+  const [selectedFeed, setSelectedFeed] = useState(
+    'http://feeds.mashable.com/Mashable'
+  );
+
+  const selectFeed = (url) => {
+    setSelectedFeed(url);
+  };
+
   useEffect(() => {
     async function fetchData() {
-      const asyncData = await getRss();
+      const asyncData = await getRss(selectedFeed);
       setFeedData(asyncData);
     }
     fetchData();
-  }, []);
-  console.log(feedData);
+  }, [selectedFeed]);
+
   return feedData ? (
-    <div>
-      <Header />
+    <div className="appContainer">
+      <Header selectFeed={selectFeed} />
       <Feed data={feedData} />
     </div>
   ) : (

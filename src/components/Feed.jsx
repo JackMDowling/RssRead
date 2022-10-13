@@ -1,26 +1,24 @@
 import React from 'react';
 import Entry from './Entry.jsx';
+import { parseContent } from '../helpers/parseContent.js';
 
 const Feed = (props) => {
-  const { item, image } = props.data.rss.channel;
-  console.log(item);
+  const { item } = props.data.rss.channel;
   return (
-    <div className="feed">
-      <ul>
-        {item.map((ele) => {
-          console.log(ele);
-          const content = ele['content:encoded']?._cdata;
-          const title = ele.title._cdata;
-          return content ? (
-            <li>
-              <Entry title={title} content={content} />
-            </li>
-          ) : (
-            <></>
-          );
-        })}
-      </ul>
-    </div>
+    <ul className="feed">
+      {item.map((ele) => {
+        const content = parseContent(ele);
+        const title = ele.title._cdata || ele.title._text;
+        // Get the link again
+        return content ? (
+          <div>
+            <Entry title={title} content={content} />
+          </div>
+        ) : (
+          <></>
+        );
+      })}
+    </ul>
   );
 };
 export default Feed;

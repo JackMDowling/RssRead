@@ -1,10 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Selector from './Selector.jsx';
+import AddFeed from './AddFeed.jsx';
+import Bookmark from './Bookmark.jsx';
 
-const Header = () => {
-    console.log('testHead')
+/*
+Header should have name, maybe logo left side
+Drop down menu to select feed
+Field to add feed url (BONUS)
+Bookmark UI
+*/
+
+const Header = ({ selectFeed }) => {
+  const [savedFeeds, setSavedFeeds] = useState([
+    'https://medium.com/feed/the-economist',
+    'http://feeds.mashable.com/Mashable',
+    'https://techcrunch.com/startups/feed/',
+    'https://medium.com/feed/backchannel',
+  ]);
   return (
-    <div className="hader">
-      <h1>This is the Header</h1>
+    <div className="header">
+      <h3>RSS Reader</h3>
+      <Selector savedFeeds={savedFeeds} selectFeed={selectFeed} />
+      <Bookmark />
+      <AddFeed />
     </div>
   );
 };

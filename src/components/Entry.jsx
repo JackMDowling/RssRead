@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import Article from './Article.jsx';
 
 const Entry = (props) => {
-  // Set State for Display Article
   const [toggleArticle, setToggleArticle] = useState(false);
   // Bookmark
   const { content, title } = props;
