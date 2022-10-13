@@ -8,9 +8,23 @@ const App = () => {
   const [selectedFeed, setSelectedFeed] = useState(
     'https://medium.com/feed/the-economist'
   );
+  const [savedArticles, setSavedArticles] = useState({});
+  const [articleContent, setArticleContent] = useState();
+  const [articleTitle, setArticleTitle] = useState();
+
+  const saveNewArticle = (title, content) => {
+    if (!(title in savedArticles)) {
+      setSavedArticles({ ...savedArticles, title: content });
+    }
+  };
 
   const selectFeed = (url) => {
     setSelectedFeed(url);
+  };
+
+  const setArticle = (content, title) => {
+    setArticleContent(content);
+    setArticleTitle(title);
   };
 
   useEffect(() => {
@@ -23,8 +37,14 @@ const App = () => {
 
   return feedData ? (
     <div className="appContainer">
-      <Header selectFeed={selectFeed} />
-      <Feed data={feedData} />
+      <Header selectFeed={selectFeed} savedArticles={savedArticles} />
+      <Feed
+        data={feedData}
+        saveNewArticle={saveNewArticle}
+        setArticle={setArticle}
+        articleContent={articleContent}
+        articleTitle={articleTitle}
+      />
     </div>
   ) : (
     <div>Loading...</div>

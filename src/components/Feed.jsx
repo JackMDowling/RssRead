@@ -4,14 +4,8 @@ import { parseContent } from '../helpers/parseContent.js';
 import Article from './Article.jsx';
 
 const Feed = (props) => {
-  const [articleContent, setArticleContent] = useState();
-  const [articleTitle, setArticleTitle] = useState();
+  const { articleContent, articleTitle, setArticle } = props;
   const { item } = props.data.rss.channel;
-
-  const setArticle = (content, title) => {
-    setArticleContent(content);
-    setArticleTitle(title);
-  };
 
   return (
     <div className="feedContainer">

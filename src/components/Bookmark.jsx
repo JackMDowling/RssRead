@@ -1,12 +1,9 @@
 import React, { useState } from 'react';
 
-const Bookmark = ({ selectFeed }) => {
-  const toggleDisplay = (e) => {
-    e.preventDefault();
-  };
+const Bookmark = ({ saveNewArticle }) => {
 
   return (
-    <button className="bookmark" onClick={toggleDisplay}>
+    <button className="bookmark" onClick={saveNewArticle}>
       Saved
     </button>
   );
