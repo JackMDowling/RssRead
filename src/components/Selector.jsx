@@ -22,17 +22,17 @@ const Selector = ({ savedFeeds, selectFeed }) => {
       Feeds
     </button>
   ) : (
-    <>
+    <div style={{ zIndex: '1' }}>
       <button className="selector" onClick={toggleDisplay}>
         Feeds
       </button>
       <div
         style={{
-          position: 'absolute',
           zIndex: '2',
+          position: 'absolute',
           border: '1px solid black',
           backgroundColor: 'white',
-          padding: '0.5em',
+          // padding: '0.5em',
         }}
       >
         {savedFeeds.map((ele) => {
@@ -43,7 +43,7 @@ const Selector = ({ savedFeeds, selectFeed }) => {
           );
         })}
       </div>
-    </>
+    </div>
   );
 };
 export default Selector;

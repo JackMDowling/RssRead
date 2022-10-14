@@ -4,7 +4,7 @@ import { parseContent } from '../helpers/parseContent.js';
 import Article from './Article.jsx';
 
 const Feed = (props) => {
-  const { articleContent, articleTitle, setArticle } = props;
+  const { articleContent, articleTitle, setArticle, saveNewArticle } = props;
   const { item } = props.data.rss.channel;
 
   return (
@@ -16,7 +16,12 @@ const Feed = (props) => {
           // Get the link again
           return content ? (
             <div>
-              <Entry title={title} content={content} setArticle={setArticle} />
+              <Entry
+                title={title}
+                content={content}
+                setArticle={setArticle}
+                saveNewArticle={saveNewArticle}
+              />
             </div>
           ) : (
             <></>

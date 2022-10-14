@@ -4,6 +4,7 @@ import Header from './components/Header.jsx';
 import { getRss } from './helpers/getRss.js';
 
 const App = () => {
+  // State Bank
   const [feedData, setFeedData] = useState();
   const [selectedFeed, setSelectedFeed] = useState(
     'https://medium.com/feed/the-economist'
@@ -12,9 +13,11 @@ const App = () => {
   const [articleContent, setArticleContent] = useState();
   const [articleTitle, setArticleTitle] = useState();
 
+  // Function Bank
+
   const saveNewArticle = (title, content) => {
     if (!(title in savedArticles)) {
-      setSavedArticles({ ...savedArticles, title: content });
+      setSavedArticles({ ...savedArticles, [title]: content });
     }
   };
 

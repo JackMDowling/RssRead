@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 
 const Entry = (props) => {
-  const { content, title, setArticle } = props;
+  const [saveText, setSaveText] = useState('Save');
+  const { content, title, setArticle, saveNewArticle } = props;
 
   // TODO!!!
 
@@ -13,7 +14,15 @@ const Entry = (props) => {
       onClick={() => setArticle(content, title)}
       key={title}
     >
-      <div className="saveButton">Save</div>
+      <div
+        className="saveButton"
+        onClick={() => {
+          setSaveText('Saved');
+          saveNewArticle(title, content);
+        }}
+      >
+        {saveText}
+      </div>
       <p className="entryText">{title}</p>
     </div>
   );
