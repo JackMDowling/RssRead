@@ -1,18 +1,21 @@
 import React from 'react';
 
 const Article = (props) => {
-  const { content, title } = props;
+  const { content, title, link } = props;
   function createMarkup() {
     return { __html: content };
   }
-  return (
+  return content ? (
     <div className="article">
       <h3>{title}</h3>
+      <a href={link} target="_blank">Article Link</a>
       <div
         className="articleBody"
         dangerouslySetInnerHTML={createMarkup()}
       ></div>
     </div>
+  ) : (
+    <></>
   );
 };
 export default Article;

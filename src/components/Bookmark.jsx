@@ -5,7 +5,6 @@ const Bookmark = ({ savedArticles, setArticle }) => {
   const [savedTitles, setSavedTitles] = useState([]);
   const [increment, setIncrement] = useState(0);
 
-
   const toggleDisplay = () => {
     if (!displayToggle) {
       setDisplayToggle(true);

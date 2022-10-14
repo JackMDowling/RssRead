@@ -12,13 +12,15 @@ const App = () => {
   const [savedArticles, setSavedArticles] = useState({});
   const [articleContent, setArticleContent] = useState();
   const [articleTitle, setArticleTitle] = useState();
+  const [articleLink, setArticleLink] = useState();
 
   // Function Bank
+
+  // TODO Mobile responsiveness
 
   const saveNewArticle = (title, content) => {
     if (!(title in savedArticles)) {
       setSavedArticles({ ...savedArticles, [title]: content });
-      localStorage.setItem('bookmarks', JSON.stringify(savedArticles));
     }
   };
 
@@ -26,9 +28,10 @@ const App = () => {
     setSelectedFeed(url);
   };
 
-  const setArticle = (content, title) => {
+  const setArticle = (content, title, link) => {
     setArticleContent(content);
     setArticleTitle(title);
+    setArticleLink(link);
   };
 
   useEffect(() => {
@@ -43,8 +46,12 @@ const App = () => {
     const bookmarks = localStorage.getItem('bookmarks');
     if (bookmarks) {
       setSavedArticles(JSON.parse(bookmarks));
+      localStorage.setItem('bookmarks', JSON.stringify(savedArticles));
     }
   }, []);
+  useEffect(() => {
+    localStorage.setItem('bookmarks', JSON.stringify(savedArticles));
+  }, [savedArticles]);
 
   return feedData ? (
     <div className="appContainer">
@@ -59,6 +66,7 @@ const App = () => {
         setArticle={setArticle}
         articleContent={articleContent}
         articleTitle={articleTitle}
+        articleLink={articleLink}
       />
     </div>
   ) : (

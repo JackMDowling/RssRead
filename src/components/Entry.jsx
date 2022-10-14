@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 const Entry = (props) => {
   const [saveText, setSaveText] = useState('Save');
-  const { content, title, setArticle, saveNewArticle } = props;
+  const { content, title, setArticle, saveNewArticle, link } = props;
 
   // TODO!!!
 
@@ -11,7 +11,7 @@ const Entry = (props) => {
   return (
     <div
       className="entry"
-      onClick={() => setArticle(content, title)}
+      onClick={() => setArticle(content, title, link)}
       key={title}
     >
       <div

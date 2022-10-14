@@ -19,7 +19,7 @@ const Header = ({ selectFeed, savedArticles, setArticle }) => {
   ]);
   return (
     <div className="header">
-      <h3>RSS Reader</h3>
+      <h5>RSS Reader</h5>
       <div className="buttonContainer">
         <Selector savedFeeds={savedFeeds} selectFeed={selectFeed} />
         <Bookmark savedArticles={savedArticles} setArticle={setArticle} />

@@ -4,7 +4,13 @@ import { parseContent } from '../helpers/parseContent.js';
 import Article from './Article.jsx';
 
 const Feed = (props) => {
-  const { articleContent, articleTitle, setArticle, saveNewArticle } = props;
+  const {
+    articleContent,
+    articleTitle,
+    setArticle,
+    saveNewArticle,
+    articleLink,
+  } = props;
   const { item } = props.data.rss.channel;
 
   return (
@@ -13,7 +19,7 @@ const Feed = (props) => {
         {item.map((ele) => {
           const content = parseContent(ele);
           const title = ele.title._cdata || ele.title._text;
-          // Get the link again
+          const link = ele.link._text;
           return content ? (
             <div>
               <Entry
@@ -21,6 +27,7 @@ const Feed = (props) => {
                 content={content}
                 setArticle={setArticle}
                 saveNewArticle={saveNewArticle}
+                link={link}
               />
             </div>
           ) : (
@@ -29,7 +36,11 @@ const Feed = (props) => {
         })}
       </div>
       <div className="articleViewer">
-        <Article content={articleContent} title={articleTitle} />
+        <Article
+          content={articleContent}
+          title={articleTitle}
+          link={articleLink}
+        />
       </div>
     </div>
   );
