@@ -4,10 +4,6 @@ const Entry = (props) => {
   const [saveText, setSaveText] = useState('Save');
   const { content, title, setArticle, saveNewArticle, link } = props;
 
-  // TODO!!!
-
-  // If no _cdata return just a link
-
   return (
     <div
       className="entry"

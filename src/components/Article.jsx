@@ -8,7 +8,7 @@ const Article = (props) => {
   return content ? (
     <div className="article">
       <h3>{title}</h3>
-      <a href={link} target="_blank">Article Link</a>
+      <a className='artLink' href={link} target="_blank">Article Link</a>
       <div
         className="articleBody"
         dangerouslySetInnerHTML={createMarkup()}
