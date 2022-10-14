@@ -16,14 +16,14 @@ const App = () => {
 
   // Function Bank
 
+  const selectFeed = (url) => {
+    setSelectedFeed(url);
+  };
+  
   const saveNewArticle = (title, content) => {
     if (!(title in savedArticles)) {
       setSavedArticles({ ...savedArticles, [title]: content });
     }
-  };
-
-  const selectFeed = (url) => {
-    setSelectedFeed(url);
   };
 
   const setArticle = (content, title, link) => {
@@ -57,13 +57,13 @@ const App = () => {
     <div className="appContainer">
       <Header
         selectFeed={selectFeed}
-        savedArticles={savedArticles}
         setArticle={setArticle}
+        savedArticles={savedArticles}
       />
       <Feed
-        data={feedData}
         saveNewArticle={saveNewArticle}
         setArticle={setArticle}
+        data={feedData}
         articleContent={articleContent}
         articleTitle={articleTitle}
         articleLink={articleLink}

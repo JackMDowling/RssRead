@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Entry from './Entry.jsx';
 import { parseContent } from '../helpers/parseContent.js';
 import Article from './Article.jsx';
