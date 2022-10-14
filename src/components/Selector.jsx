@@ -4,7 +4,6 @@ const Selector = ({ savedFeeds, selectFeed }) => {
   const [displayToggle, setDisplayToggle] = useState(false);
 
   const toggleDisplay = (e) => {
-    e.preventDefault();
     if (!displayToggle) {
       setDisplayToggle(true);
     } else {
@@ -12,7 +11,6 @@ const Selector = ({ savedFeeds, selectFeed }) => {
     }
   };
   const handleClick = (e) => {
-    e.preventDefault();
     selectFeed(e.target.innerText);
     toggleDisplay(e);
   };
@@ -22,7 +20,7 @@ const Selector = ({ savedFeeds, selectFeed }) => {
       Feeds
     </button>
   ) : (
-    <div style={{ zIndex: '1' }}>
+    <div style={{ zIndex: '1' }}>x  
       <button className="selector" onClick={toggleDisplay}>
         Feeds
       </button>

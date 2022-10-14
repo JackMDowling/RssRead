@@ -36,8 +36,8 @@ const App = () => {
 
   useEffect(() => {
     async function fetchData() {
-      const asyncData = await getRss(selectedFeed);
-      setFeedData(asyncData);
+      const convertedXml = await getRss(selectedFeed);
+      setFeedData(convertedXml);
     }
     fetchData();
   }, [selectedFeed]);
