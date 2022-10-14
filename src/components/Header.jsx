@@ -16,6 +16,8 @@ const Header = ({ selectFeed, savedArticles, setArticle }) => {
     'http://feeds.mashable.com/Mashable',
     'https://techcrunch.com/startups/feed/',
     'https://medium.com/feed/backchannel',
+    'https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml',
+    'https://feeds.feedburner.com/lifehacker/full',
   ]);
   return (
     <div className="header">
@@ -23,7 +25,7 @@ const Header = ({ selectFeed, savedArticles, setArticle }) => {
       <div className="buttonContainer">
         <Selector savedFeeds={savedFeeds} selectFeed={selectFeed} />
         <Bookmark savedArticles={savedArticles} setArticle={setArticle} />
-        <AddFeed />
+        {/* <AddFeed /> */}
       </div>
     </div>
   );

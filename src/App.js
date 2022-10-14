@@ -16,8 +16,6 @@ const App = () => {
 
   // Function Bank
 
-  // TODO Mobile responsiveness
-
   const saveNewArticle = (title, content) => {
     if (!(title in savedArticles)) {
       setSavedArticles({ ...savedArticles, [title]: content });
