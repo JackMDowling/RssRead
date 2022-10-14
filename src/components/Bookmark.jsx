@@ -43,7 +43,6 @@ const Bookmark = ({ savedArticles, setArticle }) => {
               onClick={() => {
                 setArticle(savedArticles[ele], ele);
                 toggleDisplay();
-                console.log(displayToggle);
               }}
             >
               {ele}

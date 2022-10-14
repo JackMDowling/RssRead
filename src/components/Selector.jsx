@@ -32,6 +32,7 @@ const Selector = ({ savedFeeds, selectFeed }) => {
           position: 'absolute',
           border: '1px solid black',
           backgroundColor: 'white',
+          padding: '0.5em',
         }}
       >
         {savedFeeds.map((ele) => {

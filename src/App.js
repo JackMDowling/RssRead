@@ -5,10 +5,10 @@ import { getRss } from './helpers/getRss.js';
 
 const App = () => {
   // State Bank
-  const [feedData, setFeedData] = useState();
   const [selectedFeed, setSelectedFeed] = useState(
     'https://medium.com/feed/the-economist'
   );
+  const [feedData, setFeedData] = useState();
   const [savedArticles, setSavedArticles] = useState({});
   const [articleContent, setArticleContent] = useState();
   const [articleTitle, setArticleTitle] = useState();
@@ -31,6 +31,8 @@ const App = () => {
     setArticleTitle(title);
     setArticleLink(link);
   };
+
+  // Use Effects
 
   useEffect(() => {
     async function fetchData() {
