@@ -18,6 +18,7 @@ const App = () => {
   const saveNewArticle = (title, content) => {
     if (!(title in savedArticles)) {
       setSavedArticles({ ...savedArticles, [title]: content });
+      localStorage.setItem('bookmarks', JSON.stringify(savedArticles));
     }
   };
 
@@ -38,9 +39,20 @@ const App = () => {
     fetchData();
   }, [selectedFeed]);
 
+  useEffect(() => {
+    const bookmarks = localStorage.getItem('bookmarks');
+    if (bookmarks) {
+      setSavedArticles(JSON.parse(bookmarks));
+    }
+  }, []);
+
   return feedData ? (
     <div className="appContainer">
-      <Header selectFeed={selectFeed} savedArticles={savedArticles} />
+      <Header
+        selectFeed={selectFeed}
+        savedArticles={savedArticles}
+        setArticle={setArticle}
+      />
       <Feed
         data={feedData}
         saveNewArticle={saveNewArticle}

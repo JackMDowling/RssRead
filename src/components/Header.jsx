@@ -10,7 +10,7 @@ Field to add feed url (BONUS)
 Bookmark UI
 */
 
-const Header = ({ selectFeed, savedArticles }) => {
+const Header = ({ selectFeed, savedArticles, setArticle }) => {
   const [savedFeeds, setSavedFeeds] = useState([
     'https://medium.com/feed/the-economist',
     'http://feeds.mashable.com/Mashable',
@@ -22,7 +22,7 @@ const Header = ({ selectFeed, savedArticles }) => {
       <h3>RSS Reader</h3>
       <div className="buttonContainer">
         <Selector savedFeeds={savedFeeds} selectFeed={selectFeed} />
-        <Bookmark savedArticles={savedArticles} />
+        <Bookmark savedArticles={savedArticles} setArticle={setArticle} />
         <AddFeed />
       </div>
     </div>

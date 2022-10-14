@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 
-const Bookmark = ({ savedArticles }) => {
+const Bookmark = ({ savedArticles, setArticle }) => {
   const [displayToggle, setDisplayToggle] = useState(false);
   const [savedTitles, setSavedTitles] = useState([]);
   const [increment, setIncrement] = useState(0);
 
-  const toggleDisplay = (e) => {
-    e.preventDefault();
+
+  const toggleDisplay = () => {
     if (!displayToggle) {
       setDisplayToggle(true);
     } else {
@@ -14,15 +14,9 @@ const Bookmark = ({ savedArticles }) => {
     }
     setIncrement(increment + 1);
   };
-  const handleClick = (e) => {
-    e.preventDefault();
-    selectFeed(e.target.innerText);
-    toggleDisplay(e);
-  };
 
   useEffect(() => {
     setSavedTitles(Object.keys(savedArticles));
-    console.log(savedTitles.length);
   }, [increment]);
 
   return !displayToggle ? (
@@ -45,7 +39,14 @@ const Bookmark = ({ savedArticles }) => {
       >
         {savedTitles.map((ele) => {
           return (
-            <div className="savedFeed" onClick={handleClick}>
+            <div
+              className="savedFeed"
+              onClick={() => {
+                setArticle(savedArticles[ele], ele);
+                toggleDisplay();
+                console.log(displayToggle);
+              }}
+            >
               {ele}
             </div>
           );
